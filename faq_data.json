@@ -1,6 +1,56 @@
 {
-  "fee deadline": "The last date for paying semester fees is 30th September.",
-  "scholarship form": "Scholarship forms are available in the admin office or website.",
-  "timetable": "Latest timetable is available on the college website under Academics section.",
-  "hostel": "For hostel related queries, please contact the hostel office."
+  "fees": {
+    "en": "Semester fees is ₹15000. You can pay online.",
+    "ta": "செமஸ்டர் கட்டணம் ₹15000. ஆன்லைனில் செலுத்தலாம்.",
+    "hi": "सेमेस्टर की फीस ₹15000 है। आप ऑनलाइन भुगतान कर सकते हैं।",
+    "tanglish": "Semester fees ₹15000 da 😎. Online la pay panna mudiyum."
+  },
+  "timetable": {
+    "en": "Here is the timetable 👉 http://college.com/timetable",
+    "ta": "இங்கே டைம் டேபிள் 👉 http://college.com/timetable",
+    "hi": "यहाँ टाइमटेबल है 👉 http://college.com/timetable",
+    "tanglish": "Inga da timetable link 👉 http://college.com/timetable"
+  },
+  "admission": {
+    "en": "Admission process will start next month. Apply here 👉 http://college.com/admission",
+    "ta": "சேர்க்கை செயல்முறை அடுத்த மாதம் தொடங்கும். இங்கே விண்ணப்பியுங்கள் 👉 http://college.com/admission",
+    "hi": "प्रवेश प्रक्रिया अगले महीने शुरू होगी। यहाँ आवेदन करें 👉 http://college.com/admission",
+    "tanglish": "Admission process next month start aagum da. Apply pannunga 👉 http://college.com/admission"
+  },
+  "hostel": {
+    "en": "Yes, hostel facilities are available for both boys and girls.",
+    "ta": "ஆம், ஆண்கள் மற்றும் பெண்களுக்கு விடுதி வசதிகள் உள்ளன.",
+    "hi": "हाँ, लड़कों और लड़कियों दोनों के लिए हॉस्टल की सुविधा उपलब्ध है।",
+    "tanglish": "Hostel iruku da boys and girls ku rendu perukum 😇."
+  },
+  "library": {
+    "en": "Library is open from 9 AM to 6 PM on weekdays.",
+    "ta": "நூலகம் வார நாட்களில் காலை 9 மணி முதல் மாலை 6 மணி வரை திறந்திருக்கும்.",
+    "hi": "लाइब्रेरी सप्ताह के दिनों में सुबह 9 बजे से शाम 6 बजे तक खुली रहती है।",
+    "tanglish": "Library 9 AM la open agum, 6 PM varaikum irukum weekdays la 📚."
+  },
+  "bus": {
+    "en": "College bus service is available for all major city routes.",
+    "ta": "முக்கிய நகர வழித்தடங்களுக்கு கல்லூரி பேருந்து சேவை உள்ளது.",
+    "hi": "कॉलेज बस सेवा सभी प्रमुख शहर मार्गों के लिए उपलब्ध है।",
+    "tanglish": "College bus major city routes ku available da 🚌."
+  },
+  "canteen": {
+    "en": "Canteen provides fresh and affordable food for students.",
+    "ta": "மாணவர்களுக்கு புது மற்றும் மலிவு உணவு உணவகம் வழங்குகிறது.",
+    "hi": "कैंटीन छात्रों को ताज़ा और किफायती खाना उपलब्ध कराती है।",
+    "tanglish": "Canteen la fresh ahum cheap ahum food kadaikidum da 🍔."
+  },
+  "results": {
+    "en": "Results will be published online on the college website.",
+    "ta": "முடிவுகள் கல்லூரி இணையதளத்தில் ஆன்லைனில் வெளியிடப்படும்.",
+    "hi": "परिणाम कॉलेज वेबसाइट पर ऑनलाइन प्रकाशित किए जाएंगे।",
+    "tanglish": "Results online la publish panniduvanga da college site la 📢."
+  },
+  "exam": {
+    "en": "Semester exams will begin from December 10th.",
+    "ta": "செமஸ்டர் தேர்வுகள் டிசம்பர் 10 முதல் தொடங்கும்.",
+    "hi": "सेमेस्टर की परीक्षाएँ 10 दिसंबर से शुरू होंगी।",
+    "tanglish": "Semester exam December 10th la start agum da ✍️."
+  }
 }
