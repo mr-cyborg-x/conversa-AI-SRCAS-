@@ -1,15 +1,14 @@
-from flask import Flask, request
-from twilio.twiml.messaging_response import MessagingResponse
+import streamlit as st
 from googletrans import Translator
 from langdetect import detect
 import json
+import datetime
 
 # Load FAQ Data
 with open("faq_data.json", "r", encoding="utf-8") as f:
     faq_data = json.load(f)
 
 translator = Translator()
-app = Flask(__name__)
 
 # --- Tanglish Handler ---
 def handle_tanglish(query):
@@ -30,29 +29,53 @@ def get_answer(query):
     for key in faq_data:
         if key in query:
             return faq_data[key]
-    return "Sorry, please contact admin office."
+    return "Sorry da 😅, please contact admin office."
 
-# --- Twilio WhatsApp Route ---
-@app.route("/whatsapp", methods=["POST"])
-def whatsapp_bot():
-    incoming_msg = request.form.get("Body")
+# --- Logging ---
+def log_conversation(user, bot):
+    with open("chat_logs.txt", "a", encoding="utf-8") as f:
+        f.write(f"[{datetime.datetime.now()}] USER: {user}\nBOT: {bot}\n\n")
 
-    # 1) Check Tanglish shortcuts
-    tanglish_reply = handle_tanglish(incoming_msg)
+# --- Streamlit UI ---
+st.set_page_config(page_title="College Chatbot", page_icon="🎓")
+st.title("🎓 Conversa AI – Multilingual + Tanglish Chatbot")
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display previous messages
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        st.markdown(msg["content"])
+
+# User input
+if user_input := st.chat_input("Type your message..."):
+    tanglish_reply = handle_tanglish(user_input)
+
     if tanglish_reply:
         final_answer = tanglish_reply
     else:
-        # 2) Language detect + translate
-        lang = detect(incoming_msg)
-        query_en = translator.translate(incoming_msg, dest="en").text
+        lang = detect(user_input)
+        query_en = translator.translate(user_input, dest="en").text
         answer_en = get_answer(query_en)
         final_answer = translator.translate(answer_en, dest=lang).text
 
-    # 3) Send back response
-    resp = MessagingResponse()
-    resp.message(final_answer)
-    return str(resp)
+    # Store chat history
+    st.session_state.messages.append({"role": "user", "content": user_input})
+    st.session_state.messages.append({"role": "assistant", "content": final_answer})
+    log_conversation(user_input, final_answer)
 
-if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    # Display current chat
+    with st.chat_message("user"):
+        st.markdown(user_input)
+    with st.chat_message("assistant"):
+        st.markdown(final_answer)
+
+# Download logs
+try:
+    with open("chat_logs.txt", "r", encoding="utf-8") as f:
+        logs = f.read()
+    st.download_button("📥 Download Chat Logs", logs, file_name="chat_logs.txt")
+except FileNotFoundError:
+    st.info("No logs yet.")
 
